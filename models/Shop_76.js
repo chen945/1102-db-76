@@ -33,11 +33,11 @@ const Shop_76 = class Shop_76 {
         }
     }
 };
-const test = async () => {
-    let results = await Shop_76.fetchProductByCategory(1);
-    console.log("test results", JSON.stringify(results));
-};
+// const test = async () => {
+//     let results = await Shop_76.fetchProductByCategory(1);
+//     console.log("test results", JSON.stringify(results));
+// };
 
-test();
+// test();
 
 module.exports = Shop_76;
