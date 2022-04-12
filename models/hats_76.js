@@ -1,10 +1,11 @@
 const db = require("../utils/database");
 
-const Category_76 = class Category_76 {
-    constructor(id, name, size, remote_url, local_url) {
+const hats_76 = class hats_76 {
+    constructor(id, name, price, cat_id, remote_url, local_url) {
         this.id = id;
         this.name = name;
-        this.size = size;
+        this.price = price;
+        this.cat_id = cat_id;
         this.remote_url = remote_url;
         this.local_url = local_url;
     }
@@ -12,7 +13,7 @@ const Category_76 = class Category_76 {
     // get all categories
     static async fetchAll() {
         try {
-            let results = await db.query(`SELECT * from category_76`);
+            let results = await db.query(`SELECT * from hats_76`);
             console.log("results", results.rows);
             return results.rows;
         } catch (e) {
@@ -21,10 +22,10 @@ const Category_76 = class Category_76 {
     }
 };
 
-// const test = async () => {
-//     let results = await Category_76.fetchAll();
-//     console.log("results", JSON.stringify(results.rows));
-// };
+const test = async () => {
+    let results = await hats_76.fetchAll();
+    console.log("results", JSON.stringify(results.rows));
+};
 
-// test();
-module.exports = Category_76;
+test();
+module.exports = hats_76;
