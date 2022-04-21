@@ -11,8 +11,9 @@ router.get("/", async function (req, res, next) {
         console.log("results", JSON.stringify(results));
         res.render("crown2_76/index", {
             data: results,
+            title: req.params.category,
+            name: "Doris Hsieh",
             id: "207410076",
-            title: "Crown2-DB",
         });
     } catch (err) {
         console.log(err);
