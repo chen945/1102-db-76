@@ -8,7 +8,7 @@ var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var crown76Router = require("./routes/crown76");
 var crown2_76Router = require("./routes/crown2_76");
-// var hats_76Router = require("./routes/hats_76");
+var hats_76Router = require("./routes/hats_76");
 
 var app = express();
 
