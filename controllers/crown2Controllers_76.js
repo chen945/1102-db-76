@@ -1,6 +1,13 @@
 const Category_76 = require("../models/Category_76");
 const Shop_76 = require("../models/Shop_76");
 
+//CREATE
+exports.createProducts = async (req, res) => {
+    console.log("body", req.body);
+    res.json({ msg: "create -- body data received" });
+};
+
+//READ
 exports.getCategories = async (req, res) => {
     try {
         let results = await Category_76.fetchAll();
@@ -15,7 +22,7 @@ exports.getCategories = async (req, res) => {
     }
 };
 
-exports.getCategories = async (req, res) => {
+exports.getProductsCategory = async (req, res) => {
     console.log("category", req.params.category);
     try {
         const cid = await Category_76.fetchCatIdByName(req.params.category);
