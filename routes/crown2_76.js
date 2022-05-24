@@ -9,4 +9,9 @@ router.post("/product_76", crown2Controller_76.createProducts);
 router.get("/", crown2Controller_76.getCategories);
 router.get("/shop_76/:category", crown2Controller_76.getProductsCategory);
 
+//UPDATE
+
+//DELETE
+router.get("/product_76/:id", crown2Controller_76.deleteProduct);
+
 module.exports = router;
