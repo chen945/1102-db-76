@@ -43,6 +43,17 @@ const Shop_76 = class Shop_76 {
         }
     }
 
+    //UPDATE
+    static async update(body) {
+        console.log("update body", body);
+        const { id, name, cat_id, price, remote_url, local_url } = body;
+        const query = {
+            text: `UPDATE shop_76 SET name= $1, cat_id = $2, price= $3, remote_url= $4, local_url=$5 WHERE id = $6`,
+            values: [name, cat_id, price, remote_url, local_url, id],
+        };
+        return db.query(query);
+    }
+
     //DELETE
     static deleteById(id) {
         const query = {
@@ -52,6 +63,7 @@ const Shop_76 = class Shop_76 {
         return db.query(query);
     }
 };
+
 // const test = async () => {
 //     let results = await Shop_76.fetchProductByCategory(1);
 //     console.log("test results", JSON.stringify(results));
