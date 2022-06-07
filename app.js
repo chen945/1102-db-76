@@ -9,7 +9,7 @@ var usersRouter = require("./routes/users");
 var crown76Router = require("./routes/crown76");
 var crown2_76Router = require("./routes/crown2_76");
 var hats_76Router = require("./routes/hats_76");
-
+var book_76_Router = require("./routes/book_76");
 var app = express();
 
 // view engine setup
@@ -26,6 +26,7 @@ app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/crown_76", crown76Router);
 app.use("/crown2_76", crown2_76Router);
+app.use("/book_76", book_76_Router);
 // app.use("/crown2_76/shop_76/hats", hats_76Router);
 
 // catch 404 and forward to error handler
