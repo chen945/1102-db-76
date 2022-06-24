@@ -2,27 +2,6 @@ var express = require("express");
 var router = express.Router();
 const db = require("../utils/database");
 
-/* GET home page. */
-router.get("/", function (req, res, next) {
-    res.render("shop_76/shop_76", {
-        title: "Express",
-        name: "Doris HSIEH",
-        id: `207410076`,
-    });
-});
-
-router.get("/read", async function (req, res, next) {
-    const results = await db.query(`SELECT * from shop_76`);
-    data = results.rows;
-    //console.log('data',JSON.stringify(data));
-    res.render("shop_76/index", {
-        data,
-        title: "Express",
-        name: "Doris HSIEH",
-        id: `207410076`,
-    });
-});
-
 /* CREATE*/
 
 router.post("/create", async (req, res) => {
@@ -43,7 +22,7 @@ router.post("/create", async (req, res) => {
     );
     try {
         const query = {
-            text: `INSERT INTO shop_76(id,name,cat_id,price,remote_url,local_url) VALUES ($1,$2,$3,$4,$5);`,
+            text: `INSERT INTO shop_76(id,name,cat_id,price,remote_url,local_url) VALUES ($1,$2,$3,$4,$5,$6);`,
             values: [id, name, cat_id, price, remote_url, local_url],
         };
         await db.query(query);
@@ -55,19 +34,22 @@ router.post("/create", async (req, res) => {
 
 /* READ */
 
-router.get("/", async function (req, res, next) {
-    let data;
+router.get("/", async (req, res) => {
     try {
-        const results = await db.query(`SELECT * from shop_76`);
-        data = results.rows;
-        //console.log('data',JSON.stringify(data));
-        //res.json(data);
-        res.render("shop_76", { data });
+        const results = await db.query("SELECT * FROM shop_76");
+        console.log("results", JSON.stringify(results.rows));
+        res.render("shop_76/", {
+            data: results.rows,
+            id: "207410076",
+            name: "Doris Hsieh",
+        });
     } catch (err) {
-        //console.log('Errors on getting books!');
-        res.render("shop_76", { data: "" });
+        res.render("shop_76/", {
+            data: "",
+            id: "207410076",
+            name: "Doris Hsieh",
+        });
     }
-    next();
 });
 
 /* change page to edit */
